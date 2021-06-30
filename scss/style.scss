@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+:root {
+    --background-color: hsl(235, 21%, 11%);
+    --title-color: hsl(236, 33%, 92%);
+    --text-color: hsl(234, 39%, 85%);
+    --todo-background-color: hsl(235, 24%, 19%);
+    --text-hover-color: hsl(236, 33%, 92%);
+    --checked-text-color: hsl(234, 11%, 52%);
+    --border-color: hsl(237, 14%, 26%);
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.head-image {
+    height:20rem;
+    overflow: hidden;
+    
+    img {
+        object-fit: cover;
+        width: 100%;
+    } 
+}
+
+.container {
+    max-width: 35rem;
+    margin: auto;
+    margin-top: -17rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        letter-spacing: .75rem;
+        color: var(--title-color);
+    }
+
+    button {
+        border-style: none;
+        background-color: transparent;
+    }
+}
+
+button {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: transparent;
+    border-radius: 1.5rem;
+    border: .1rem solid grey;
+    margin-right: 1rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.form-container {
+    background-color: var(--todo-background-color);
+    padding: 1rem 1rem;
+    border-radius: .25rem;
+    margin-bottom: 1.5rem;
+
+    form {
+        display: flex;
+    }
+
+    input {
+        background-color: transparent;
+        color: var(--text-color);
+        border-style: none;
+        outline: none;
+        font-size: 16px;
+        font-weight: 700;
+        width: 90%;
+        caret-color: hsl(220, 98%, 61%);
+    }
+}
+
+.articles {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--todo-background-color);
+    border-radius: .25rem;
+
+    .to-do-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1rem;
+        border-bottom: .1rem solid var(--border-color);
+
+        .text {
+            display: flex;
+            align-items: center;
+            max-width: 70%;
+        }
+
+        h4 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        img {
+            visibility: hidden;
+        }
+
+        &:hover {
+            cursor: pointer;
+        
+            .delete {
+                visibility: visible;
+            }
+
+            .text {
+                color: var(--text-hover-color);
+            }
+        }
+        
+        
+
+    }
+
+    .active {
+        button:hover {
+            border: solid .1rem transparent;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(125deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            box-shadow: 2px 1000px 1px var(--todo-background-color) inset;
+        }
+    }
+
+    .checked {
+        .to-do-check-button img {
+            visibility: visible;
+        }
+
+        button {
+            background: linear-gradient(125deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+            border: none;
+        }
+
+        h4 {
+            text-decoration: line-through;
+            color: var(--checked-text-color);
+        }
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1rem;
+        font-size: 1rem;
+        color: hsl(233, 14%, 35%);
+
+        ul {
+            list-style: none;
+            display: flex;
+        }
+
+        li {
+            margin-left: 1rem;
+
+            &:hover {
+                cursor: pointer;
+                color: var(--text-color);
+            }
+        }
+    }
+}

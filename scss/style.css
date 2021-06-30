@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+:root {
+  --background-color: hsl(235, 21%, 11%);
+  --title-color: hsl(236, 33%, 92%);
+  --text-color: hsl(234, 39%, 85%);
+  --todo-background-color: hsl(235, 24%, 19%);
+  --text-hover-color: hsl(236, 33%, 92%);
+  --checked-text-color: hsl(234, 11%, 52%);
+  --border-color: hsl(237, 14%, 26%);
+}
+
+body {
+  margin: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.head-image {
+  height: 20rem;
+  overflow: hidden;
+}
+
+.head-image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+
+.container {
+  max-width: 35rem;
+  margin: auto;
+  margin-top: -17rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 100;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header h1 {
+  letter-spacing: .75rem;
+  color: var(--title-color);
+}
+
+header button {
+  border-style: none;
+  background-color: transparent;
+}
+
+button {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: transparent;
+  border-radius: 1.5rem;
+  border: .1rem solid grey;
+  margin-right: 1rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.form-container {
+  background-color: var(--todo-background-color);
+  padding: 1rem 1rem;
+  border-radius: .25rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.form-container input {
+  background-color: transparent;
+  color: var(--text-color);
+  border-style: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: 700;
+  width: 90%;
+  caret-color: #3a7bfd;
+}
+
+.articles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: var(--todo-background-color);
+  border-radius: .25rem;
+}
+
+.articles .to-do-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem 1rem;
+  border-bottom: 0.1rem solid var(--border-color);
+}
+
+.articles .to-do-item .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 70%;
+}
+
+.articles .to-do-item h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.articles .to-do-item img {
+  visibility: hidden;
+}
+
+.articles .to-do-item:hover {
+  cursor: pointer;
+}
+
+.articles .to-do-item:hover .delete {
+  visibility: visible;
+}
+
+.articles .to-do-item:hover .text {
+  color: var(--text-hover-color);
+}
+
+.articles .active button:hover {
+  border: solid .1rem transparent;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(125deg, #57ddff, #c058f3);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  -webkit-box-shadow: 2px 1000px 1px var(--todo-background-color) inset;
+          box-shadow: 2px 1000px 1px var(--todo-background-color) inset;
+}
+
+.articles .checked .to-do-check-button img {
+  visibility: visible;
+}
+
+.articles .checked button {
+  background: linear-gradient(125deg, #57ddff, #c058f3);
+  border: none;
+}
+
+.articles .checked h4 {
+  text-decoration: line-through;
+  color: var(--checked-text-color);
+}
+
+.articles nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 1rem;
+  font-size: 1rem;
+  color: #4d5066;
+}
+
+.articles nav ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.articles nav li {
+  margin-left: 1rem;
+}
+
+.articles nav li:hover {
+  cursor: pointer;
+  color: var(--text-color);
+}
+/*# sourceMappingURL=style.css.map */

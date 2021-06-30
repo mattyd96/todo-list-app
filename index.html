@@ -13,24 +13,62 @@
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
+
+  <link rel="stylesheet" href="scss/style.css">
 </head>
 <body>
+  <div class="head-image">
+    <picture>
+      <source media="(max-width: 700px)" srcset="images/bg-mobile-dark.jpg">
+      <img src="images/bg-desktop-dark.jpg" alt="background image">
+    </picture>
+  </div>
+  <div class="container">
+    <header>
+      <h1>TODO</h1>
+      <button class="dark" onclick="changeColors()"><img src="images/icon-sun.svg" alt="" id="theme-icon"></button>
+    </header>
+    <main>
+      <div class="form-container">
+        <form id="form">
+          <label for="to-do-entry"><button></button></label>
+          <input type="text" id="to-do-entry" name="to-do-entry" placeholder="Create a new todo...">
+        </form>
+      </div>
+      
+      <div class="articles">
+        <!-- to do item: new articles will be added in this section -->
+        <article class="to-do-item checked" id="30">
+          <div class="text">
+            <button class="to-do-check-button" id="button-30" onclick="checkOff('30')"><img src="images/icon-check.svg" alt="" id="check-30"></button>
+            <h4>Complete Online Javascript Course</h4>
+          </div>
+          <img src="images/icon-cross.svg" alt="" class= "delete" id="delete-30" onclick="deleteToDo('30')">
+        </article>
 
-  Todo
+        <!-- nav -->
+        <nav id="nav">
+          <p><span id="items-left-number">0</span> items left</p>
+          <ul class="hide-show">
+            <li onclick="showAll()">All</li>
+            <li onclick="showSelected('active', 'checked')">Active</li>
+            <li onclick="showSelected('checked', 'active')">Completed</li>
+          </ul>
+          <ul class="clear">
+            <li onclick="clearItems()">Clear Completed</li>
+          </ul>
+        </nav>
+      </div>
+    </main>
+  </div>
 
-  <!-- Add dynamic number --> items left
-
-  All
-  Active 
-  Completed
-
-  Clear Completed
-
-  Drag and drop to reorder list
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
+
+
+  <script src="script.js"></script>
 </body>
 </html>
