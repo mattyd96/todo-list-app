@@ -90,6 +90,48 @@ function showSelected(shown, hidden) {
     show(shown);
 }
 
+//highlight helper function
+function highlightHelper(element) {
+    var navs = document.getElementsByClassName("hide-show");
+    Array.from(navs).forEach( nav => {
+            var nodes = nav.children;
+            Array.from(nodes).forEach( node => {
+                node.style.color = "var(--nav-text-color)";
+            });
+
+            nodes[element].style.color = "hsl(220, 98%, 61%)";
+    });
+}
+
+//highlight selected option
+function highlight(option) {
+    switch(option) {
+        case "all":
+            highlightHelper(0);
+            break;
+        case "active":
+            highlightHelper(1)
+            break;
+        case "checked":
+            highlightHelper(2);
+        default:
+          break;
+      }
+}
+
+//----------------------------- Deleting checked elements -------------------------------------------//
+
+function clearCompleted() {
+    var elements = document.getElementsByClassName("checked");
+
+    Array.from(elements).forEach(element => {
+        element.remove();
+        totalTodos -= 1;
+    });
+
+    itemNumberUpdate();
+}
+
 
 //----------------------------- changing light and dark themes ---------------------------------------//
 
@@ -99,11 +141,32 @@ function changeColors() {
     
     if(status.includes("sun")) {
         document.getElementById("theme-icon").src = "images/icon-moon.svg";
+        document.getElementsByClassName("dark")[0].style.display = "none";
+        document.getElementsByClassName("light")[0].style.display = "block";
 
         document.documentElement.style.setProperty('--background-color', 'hsl(0, 0%, 98%)');
         document.documentElement.style.setProperty('--todo-background-color', '#fff');
-        document.documentElement.style.setProperty('--title-color', 'hsl(0, 0%, 98%)');
 
-        document.documentElement.style.setProperty('--text-color', 'hsl(236, 9%, 61%)');
+        document.documentElement.style.setProperty('--title-color', 'hsl(0, 0%, 98%)');
+        document.documentElement.style.setProperty('--text-color', 'hsl(235, 19%, 35%)');
+        document.documentElement.style.setProperty('--checked-text-color', 'hsl(236, 33%, 92%)');
+
+        document.documentElement.style.setProperty('--border-color', 'hsl(236, 33%, 92%)');
+        document.documentElement.style.setProperty('--button-border-color', 'hsl(236, 33%, 92%)');
+
+    } else {
+        document.getElementById("theme-icon").src = "images/icon-sun.svg";
+        document.getElementsByClassName("dark")[0].style.display = "block";
+        document.getElementsByClassName("light")[0].style.display = "none";
+
+        document.documentElement.style.setProperty('--background-color', 'hsl(235, 21%, 11%)');
+        document.documentElement.style.setProperty('--todo-background-color', 'hsl(235, 24%, 19%)');
+
+        document.documentElement.style.setProperty('--title-color', 'hsl(236, 33%, 92%)');
+        document.documentElement.style.setProperty('--text-color', 'hsl(234, 39%, 85%)');
+        document.documentElement.style.setProperty('--checked-text-color', 'hsl(234, 11%, 52%)');
+
+        document.documentElement.style.setProperty('--border-color', 'hsl(237, 14%, 26%)');
+        document.documentElement.style.setProperty('--button-border-color', 'hsl(237, 14%, 26%)');
     }
 }

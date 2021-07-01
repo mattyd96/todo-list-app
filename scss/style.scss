@@ -4,10 +4,13 @@
     --background-color: hsl(235, 21%, 11%);
     --title-color: hsl(236, 33%, 92%);
     --text-color: hsl(234, 39%, 85%);
+    --placeholder-text-color: hsl(234, 11%, 52%);
     --todo-background-color: hsl(235, 24%, 19%);
     --text-hover-color: hsl(236, 33%, 92%);
     --checked-text-color: hsl(234, 11%, 52%);
     --border-color: hsl(237, 14%, 26%);
+    --button-border-color: hsl(237, 14%, 26%);
+    --nav-text-color: hsl(233, 14%, 35%);
 }
 
 
@@ -22,6 +25,10 @@ body {
 .head-image {
     height:20rem;
     overflow: hidden;
+
+    .light {
+        display: none;
+    }
     
     img {
         object-fit: cover;
@@ -59,7 +66,7 @@ button {
     height: 1.5rem;
     background-color: transparent;
     border-radius: 1.5rem;
-    border: .1rem solid grey;
+    border: .1rem solid var(--button-border-color);
     margin-right: 1rem;
 
     &:hover {
@@ -82,10 +89,15 @@ button {
         color: var(--text-color);
         border-style: none;
         outline: none;
+        font-family: 'Josefin Sans', sans-serif;
         font-size: 16px;
         font-weight: 700;
         width: 90%;
         caret-color: hsl(220, 98%, 61%);
+    }
+
+    ::placeholder {
+        color: var(--placeholder-text-color)
     }
 }
 
@@ -94,6 +106,7 @@ button {
     flex-direction: column;
     background-color: var(--todo-background-color);
     border-radius: .25rem;
+    box-shadow: 0 1rem 2rem 1rem hsla(0, 0%, 0%, .5);
 
     .to-do-item {
         display: flex;
@@ -165,7 +178,7 @@ button {
         justify-content: space-between;
         padding: 0 1rem;
         font-size: 1rem;
-        color: hsl(233, 14%, 35%);
+        color: var(--nav-text-color);
 
         ul {
             list-style: none;
@@ -177,7 +190,54 @@ button {
 
             &:hover {
                 cursor: pointer;
-                color: var(--text-color);
+                color: var(--text-color) !important;
+            }
+        }
+    }
+
+}
+
+.nav2 {
+    display: none;
+}
+
+
+@media(max-width: 700px) {
+    .container {
+        margin: -17rem 2rem 2rem 2rem;
+    }
+    .articles {
+        nav .hide-show {
+            display: none;
+        }
+
+        .to-do-item .delete {
+            visibility: visible;
+        }
+    }
+
+    
+
+    .nav2 {
+        display: flex;
+        padding: 1rem;
+        background-color: var(--todo-background-color);
+        border-radius: .25rem;
+        margin-top: 1rem;
+        color: var(--nav-text-color);
+
+        ul {
+            list-style: none;
+            display: flex;
+            margin: auto;
+        }
+
+        li {
+            margin: auto 1rem;
+
+            &:hover {
+                cursor: pointer;
+                color: var(--text-color) !important;
             }
         }
     }

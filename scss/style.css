@@ -3,10 +3,13 @@
   --background-color: hsl(235, 21%, 11%);
   --title-color: hsl(236, 33%, 92%);
   --text-color: hsl(234, 39%, 85%);
+  --placeholder-text-color: hsl(234, 11%, 52%);
   --todo-background-color: hsl(235, 24%, 19%);
   --text-hover-color: hsl(236, 33%, 92%);
   --checked-text-color: hsl(234, 11%, 52%);
   --border-color: hsl(237, 14%, 26%);
+  --button-border-color: hsl(237, 14%, 26%);
+  --nav-text-color: hsl(233, 14%, 35%);
 }
 
 body {
@@ -20,6 +23,10 @@ body {
 .head-image {
   height: 20rem;
   overflow: hidden;
+}
+
+.head-image .light {
+  display: none;
 }
 
 .head-image img {
@@ -69,7 +76,7 @@ button {
   height: 1.5rem;
   background-color: transparent;
   border-radius: 1.5rem;
-  border: .1rem solid grey;
+  border: 0.1rem solid var(--button-border-color);
   margin-right: 1rem;
 }
 
@@ -95,10 +102,27 @@ button:hover {
   color: var(--text-color);
   border-style: none;
   outline: none;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 16px;
   font-weight: 700;
   width: 90%;
   caret-color: #3a7bfd;
+}
+
+.form-container ::-webkit-input-placeholder {
+  color: var(--placeholder-text-color);
+}
+
+.form-container :-ms-input-placeholder {
+  color: var(--placeholder-text-color);
+}
+
+.form-container ::-ms-input-placeholder {
+  color: var(--placeholder-text-color);
+}
+
+.form-container ::placeholder {
+  color: var(--placeholder-text-color);
 }
 
 .articles {
@@ -111,6 +135,8 @@ button:hover {
           flex-direction: column;
   background-color: var(--todo-background-color);
   border-radius: .25rem;
+  -webkit-box-shadow: 0 1rem 2rem 1rem rgba(0, 0, 0, 0.5);
+          box-shadow: 0 1rem 2rem 1rem rgba(0, 0, 0, 0.5);
 }
 
 .articles .to-do-item {
@@ -191,7 +217,7 @@ button:hover {
           justify-content: space-between;
   padding: 0 1rem;
   font-size: 1rem;
-  color: #4d5066;
+  color: var(--nav-text-color);
 }
 
 .articles nav ul {
@@ -207,6 +233,46 @@ button:hover {
 
 .articles nav li:hover {
   cursor: pointer;
-  color: var(--text-color);
+  color: var(--text-color) !important;
+}
+
+.nav2 {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .container {
+    margin: -17rem 2rem 2rem 2rem;
+  }
+  .articles nav .hide-show {
+    display: none;
+  }
+  .articles .to-do-item .delete {
+    visibility: visible;
+  }
+  .nav2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 1rem;
+    background-color: var(--todo-background-color);
+    border-radius: .25rem;
+    margin-top: 1rem;
+    color: var(--nav-text-color);
+  }
+  .nav2 ul {
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: auto;
+  }
+  .nav2 li {
+    margin: auto 1rem;
+  }
+  .nav2 li:hover {
+    cursor: pointer;
+    color: var(--text-color) !important;
+  }
 }
 /*# sourceMappingURL=style.css.map */
