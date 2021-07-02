@@ -11,6 +11,8 @@
     --border-color: hsl(237, 14%, 26%);
     --button-border-color: hsl(237, 14%, 26%);
     --nav-text-color: hsl(233, 14%, 35%);
+    --box-shadow-color: hsla(0, 0%, 0%, .5);
+    --drag-highlight-border-color: white;
 }
 
 
@@ -106,7 +108,7 @@ button {
     flex-direction: column;
     background-color: var(--todo-background-color);
     border-radius: .25rem;
-    box-shadow: 0 1rem 2rem 1rem hsla(0, 0%, 0%, .5);
+    box-shadow: 0 1rem 2rem .3rem var(--box-shadow-color);
 
     .to-do-item {
         display: flex;
@@ -114,6 +116,7 @@ button {
         justify-content: space-between;
         padding: 1rem 1rem;
         border-bottom: .1rem solid var(--border-color);
+        
 
         .text {
             display: flex;
@@ -195,6 +198,10 @@ button {
         }
     }
 
+    .dragover {
+        border-top: .1rem solid var(--drag-highlight-border-color);
+    }
+
 }
 
 .nav2 {
@@ -225,6 +232,7 @@ button {
         border-radius: .25rem;
         margin-top: 1rem;
         color: var(--nav-text-color);
+        box-shadow: 0 1rem 2rem .3rem var(--box-shadow-color);
 
         ul {
             list-style: none;

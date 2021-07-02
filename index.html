@@ -42,7 +42,7 @@
       
       <div class="articles">
         <!-- to do item: new articles will be added in this section -->
-        <article class="to-do-item checked" id="30">
+        <article class="to-do-item checked" id="30" draggable="true" ondragenter="dragEnter(event, this)" ondragover="dragOver(event, this)" ondragleave="dragLeave(event, this)" ondrop="drop(event, this)">
           <div class="text">
             <button class="to-do-check-button" id="button-30" onclick="checkOff('30')"><img src="images/icon-check.svg" alt="" id="check-30"></button>
             <h4>Complete Online Javascript Course</h4>
@@ -51,7 +51,7 @@
         </article>
 
         <!-- nav -->
-        <nav id="nav">
+        <nav id="nav" ondragenter="dragEnter(event, this)" ondragover="dragOver(event, this)" ondragleave="dragLeave(event, this)" ondrop="drop(event, this)">
           <p><span id="items-left-number">0</span> items left</p>
           <ul class="hide-show">
             <li onclick="showAll(), highlight('all')">All</li>

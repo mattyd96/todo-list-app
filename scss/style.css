@@ -10,6 +10,8 @@
   --border-color: hsl(237, 14%, 26%);
   --button-border-color: hsl(237, 14%, 26%);
   --nav-text-color: hsl(233, 14%, 35%);
+  --box-shadow-color: hsla(0, 0%, 0%, .5);
+  --drag-highlight-border-color: white;
 }
 
 body {
@@ -135,8 +137,8 @@ button:hover {
           flex-direction: column;
   background-color: var(--todo-background-color);
   border-radius: .25rem;
-  -webkit-box-shadow: 0 1rem 2rem 1rem rgba(0, 0, 0, 0.5);
-          box-shadow: 0 1rem 2rem 1rem rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 1rem 2rem 0.3rem var(--box-shadow-color);
+          box-shadow: 0 1rem 2rem 0.3rem var(--box-shadow-color);
 }
 
 .articles .to-do-item {
@@ -236,6 +238,10 @@ button:hover {
   color: var(--text-color) !important;
 }
 
+.articles .dragover {
+  border-top: 0.1rem solid var(--drag-highlight-border-color);
+}
+
 .nav2 {
   display: none;
 }
@@ -259,6 +265,8 @@ button:hover {
     border-radius: .25rem;
     margin-top: 1rem;
     color: var(--nav-text-color);
+    -webkit-box-shadow: 0 1rem 2rem 0.3rem var(--box-shadow-color);
+            box-shadow: 0 1rem 2rem 0.3rem var(--box-shadow-color);
   }
   .nav2 ul {
     list-style: none;
