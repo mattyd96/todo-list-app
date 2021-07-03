@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="scss/style.css">
 </head>
 <body>
-  <div class="head-image">
+  <aside class="head-image">
     <picture class="dark">
       <source media="(max-width: 700px)" srcset="images/bg-mobile-dark.jpg">
       <img src="images/bg-desktop-dark.jpg" alt="background image">
@@ -20,16 +20,16 @@
       <source media="(max-width: 700px)" srcset="images/bg-mobile-light.jpg">
       <img src="images/bg-desktop-light.jpg" alt="background image">
     </picture>
-  </div>
+  </aside>
   <div class="container">
     <header>
       <h1>TODO</h1>
-      <button class="dark" onclick="changeColors()"><img src="images/icon-sun.svg" alt="" id="theme-icon"></button>
+      <button class="dark" onclick="changeColors()" aria-label="dark and light theme toggle"><img src="images/icon-sun.svg" alt="" id="theme-icon"></button>
     </header>
     <main>
       <div class="form-container">
         <form id="form">
-          <label for="to-do-entry"><button></button></label>
+          <label for="to-do-entry"><button aria-label="create new entry label"></button></label>
           <input type="text" id="to-do-entry" name="to-do-entry" placeholder="Create a new todo...">
         </form>
       </div>
@@ -63,9 +63,7 @@
       <p class="drag-note">Drag and drop to reorder list</p>
     </main>
   </div>
-
   
-
   <aside class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Matthew Durflinger</a>.
