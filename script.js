@@ -16,7 +16,7 @@ function createToDo(event) {
     if (content == "") { return; }
 
     //html for new todo item
-    var html = '<article class="to-do-item active" id="' + id.toString() + '" draggable="true" ondragenter="dragEnter(event, this)" ondragover="dragOver(event, this)" ondragleave="dragLeave(event, this)" ondrop="drop(event, this)"><div class="text"><button class="to-do-check-button" id="button-1" onclick="checkOff(\'' + id.toString() + '\')"><img src="images/icon-check.svg" alt="" id="check-' + id.toString() + '"></button><h4>' + content + '</h4></div><img src="images/icon-cross.svg" alt="" class= "delete" id="delete-' + id.toString() + '" onclick="deleteToDo(\'' + id.toString() + '\')"></article>'
+    var html = '<article class="to-do-item active" id="' + id.toString() + '" draggable="true" ondragenter="dragEnter(event, this)" ondragover="dragOver(event, this)" ondragleave="dragLeave(event, this)" ondrop="drop(event, this)"><div class="text"><button class="to-do-check-button" id="button-1" onclick="checkOff(\'' + id.toString() + '\')" aria-label="check off button"><img src="images/icon-check.svg" alt="" id="check-' + id.toString() + '"></button><h4>' + content + '</h4></div><img src="images/icon-cross.svg" alt="" class= "delete" id="delete-' + id.toString() + '" onclick="deleteToDo(\'' + id.toString() + '\')"></article>'
 
     //insert that html
     document.getElementById("nav").insertAdjacentHTML('beforebegin', html);
@@ -36,6 +36,12 @@ form.addEventListener('submit', createToDo);
 function deleteToDo(item) {
     var todo = document.getElementById(item);
     todo.remove();
+
+    if(todo.classList.contains("active")) {
+        totalTodos -=1;
+        itemNumberUpdate();
+    }
+    
 }
 
 //update number of items
