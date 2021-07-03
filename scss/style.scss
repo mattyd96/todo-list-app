@@ -12,7 +12,6 @@
     --button-border-color: hsl(237, 14%, 26%);
     --nav-text-color: hsl(233, 14%, 35%);
     --box-shadow-color: hsla(0, 0%, 0%, .5);
-    --drag-highlight-border-color: white;
 }
 
 
@@ -199,7 +198,9 @@ button {
     }
 
     .dragover {
-        border-top: .1rem solid var(--drag-highlight-border-color);
+        //border-top: .1rem solid var(--drag-highlight-border-color);
+        padding-top: 2rem;
+        transition-duration: .25s;
     }
 
 }
@@ -207,6 +208,16 @@ button {
 .nav2 {
     display: none;
 }
+
+.drag-note {
+    text-align: center;
+    font-size: .8rem;
+    color: var(--nav-text-color);
+    margin-top: 3rem;
+}
+
+.attribution { font-size: 11px; text-align: center; margin-top: 2rem;}
+.attribution a { color: hsl(228, 45%, 44%); }
 
 
 @media(max-width: 700px) {

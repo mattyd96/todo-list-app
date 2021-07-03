@@ -36,8 +36,6 @@ form.addEventListener('submit', createToDo);
 function deleteToDo(item) {
     var todo = document.getElementById(item);
     todo.remove();
-    totalTodos -= 1;
-    itemNumberUpdate();
 }
 
 //update number of items
@@ -51,6 +49,16 @@ function itemNumberUpdate() {
 function checkOff(todo) {
     var element = document.getElementById(todo).classList
 
+    //update how many items are left
+    if(element.contains("active")) {
+        totalTodos -= 1;
+        itemNumberUpdate();
+    } else {
+        totalTodos += 1;
+        itemNumberUpdate();
+    }
+
+    //toggle classes
     element.toggle("checked");
     element.toggle("active")
 }
@@ -126,10 +134,7 @@ function clearCompleted() {
 
     Array.from(elements).forEach(element => {
         element.remove();
-        totalTodos -= 1;
     });
-
-    itemNumberUpdate();
 }
 
 
@@ -156,7 +161,6 @@ function changeColors() {
 
         document.documentElement.style.setProperty('--border-color', 'hsl(236, 33%, 92%)');
         document.documentElement.style.setProperty('--button-border-color', 'hsl(236, 33%, 92%)');
-        document.documentElement.style.setProperty('--drag-highlight-border-color', 'hsl(235, 19%, 35%)');
         document.documentElement.style.setProperty('--box-shadow-color', 'hsla(0, 0%, 0%, .05)');
 
     } else {
@@ -177,7 +181,6 @@ function changeColors() {
 
         document.documentElement.style.setProperty('--border-color', 'hsl(237, 14%, 26%)');
         document.documentElement.style.setProperty('--button-border-color', 'hsl(237, 14%, 26%)');
-        document.documentElement.style.setProperty('--drag-highlight-border-color', 'white');
         document.documentElement.style.setProperty('--box-shadow-color', 'hsla(0, 0%, 0%, .5)');
         
     }
@@ -188,11 +191,12 @@ function changeColors() {
 
 document.getElementsByClassName("articles")[0].addEventListener('dragstart', dragStart);
 
+//fires on drag start - gets data
 function dragStart(e) {
     e.dataTransfer.setData('text/plain', e.target.id);
 }
 
-
+//modifies drop target css
 function dragEnter(e, el) {
     e.preventDefault();
     el.classList.add('dragover');
@@ -202,10 +206,12 @@ function dragOver(e, el) {
     e.preventDefault();
 }
 
+//returns drop target css to original state
 function dragLeave(e, el) {
     el.classList.remove('dragover');
 }
 
+//insert dragged node before the drop target
 function drop(e, el) {
     e.target.classList.remove('dragover');
     // get the draggable element

@@ -10,8 +10,7 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    
   </style>
 
   <link rel="stylesheet" href="scss/style.css">
@@ -42,13 +41,7 @@
       
       <div class="articles">
         <!-- to do item: new articles will be added in this section -->
-        <article class="to-do-item checked" id="30" draggable="true" ondragenter="dragEnter(event, this)" ondragover="dragOver(event, this)" ondragleave="dragLeave(event, this)" ondrop="drop(event, this)">
-          <div class="text">
-            <button class="to-do-check-button" id="button-30" onclick="checkOff('30')"><img src="images/icon-check.svg" alt="" id="check-30"></button>
-            <h4>Complete Online Javascript Course</h4>
-          </div>
-          <img src="images/icon-cross.svg" alt="" class= "delete" id="delete-30" onclick="deleteToDo('30')">
-        </article>
+
 
         <!-- nav -->
         <nav id="nav" ondragenter="dragEnter(event, this)" ondragover="dragOver(event, this)" ondragleave="dragLeave(event, this)" ondrop="drop(event, this)">
@@ -75,10 +68,11 @@
     </main>
   </div>
 
+  <p class="drag-note">Drag and drop to reorder list</p>
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">Matthew Durflinger</a>.
   </div>
 
 

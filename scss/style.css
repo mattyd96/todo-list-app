@@ -11,7 +11,6 @@
   --button-border-color: hsl(237, 14%, 26%);
   --nav-text-color: hsl(233, 14%, 35%);
   --box-shadow-color: hsla(0, 0%, 0%, .5);
-  --drag-highlight-border-color: white;
 }
 
 body {
@@ -239,11 +238,30 @@ button:hover {
 }
 
 .articles .dragover {
-  border-top: 0.1rem solid var(--drag-highlight-border-color);
+  padding-top: 2rem;
+  -webkit-transition-duration: .25s;
+          transition-duration: .25s;
 }
 
 .nav2 {
   display: none;
+}
+
+.drag-note {
+  text-align: center;
+  font-size: .8rem;
+  color: var(--nav-text-color);
+  margin-top: 3rem;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.attribution a {
+  color: #3e52a3;
 }
 
 @media (max-width: 700px) {
