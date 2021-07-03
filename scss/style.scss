@@ -198,7 +198,6 @@ button {
     }
 
     .dragover {
-        //border-top: .1rem solid var(--drag-highlight-border-color);
         padding-top: 2rem;
         transition-duration: .25s;
     }
@@ -249,10 +248,12 @@ button {
             list-style: none;
             display: flex;
             margin: auto;
+            padding: 0;
         }
 
         li {
             margin: auto 1rem;
+            padding: 0;
 
             &:hover {
                 cursor: pointer;

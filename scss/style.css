@@ -292,9 +292,11 @@ button:hover {
     display: -ms-flexbox;
     display: flex;
     margin: auto;
+    padding: 0;
   }
   .nav2 li {
     margin: auto 1rem;
+    padding: 0;
   }
   .nav2 li:hover {
     cursor: pointer;
